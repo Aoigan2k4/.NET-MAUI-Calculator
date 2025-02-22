@@ -51,16 +51,19 @@ namespace CalculatorApp
             }
         }
 
-        //Error
-        private void Negative_Clicked(object sender, EventArgs e) { 
-            value = float.Parse(currentInput);
-
+        //works
+        private void Negative_Clicked(object sender, EventArgs e)
+        {
+            value = 0;
+        
             if (!currentInput.Contains("-") && !string.IsNullOrEmpty(equation))
             {
-                value -= value * 2;
+                //value -= value * 2;
+                value = float.Parse("-" + currentInput);
                 currentInput = Convert.ToString(value);
             }
-            else {
+            else
+            {
                 currentInput = Convert.ToString(Math.Abs(value));
             }
             equation += currentInput;
@@ -71,13 +74,12 @@ namespace CalculatorApp
         //Works
         private void Decimal_Clicked(object sender, EventArgs e)
         {
-            if (!currentInput.Contains("."))
-            {
-                currentInput += ".";
-            }
+           
+            currentInput += ".";
+            
             equation += currentInput;
             Equation.Text = currentInput;
-            Output.Text = equation;
+            Output.Text = currentInput;
         }
 
         //Works
